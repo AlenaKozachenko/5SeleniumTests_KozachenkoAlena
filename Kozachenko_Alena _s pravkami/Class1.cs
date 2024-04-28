@@ -15,11 +15,10 @@ public class SeleniumTestsForPractic
     public void Setup()
     {
         var options = new ChromeOptions();
-        options.AddArguments ("--no-sandbox", "--start-maximized", "--disable-extensions");
-        
-        driver = new ChromeDriver();
+        options.AddArguments ("--no-sandbox", "--window-size=1920,1080", "--disable-extensions");
+        driver = new ChromeDriver(options);
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-        // Авторизация
+        
         Autorization();
         
     }
@@ -35,14 +34,11 @@ public class SeleniumTestsForPractic
     [Test]
     public void NavigationTest()
     {
-        // клик на боковое меню
-        var sideMenu = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        sideMenu.Click();
-        // клик на "сообщества"
+      
         var community = driver.FindElements(By.CssSelector("[data-tid='Community']"))
             .First(element => element.Displayed);
         community.Click();
-        // проверяем, что Сообщества есть на странице + урл правильный
+        
         var communityTitle = driver.FindElement(By.CssSelector("[data-tid='Title']"));
         Assert.That(driver.Url == "https://staff-testing.testkontur.ru/communities",
             "На странице 'сообщества' Url неправильный");
@@ -52,58 +48,67 @@ public class SeleniumTestsForPractic
     [Test]
     public void ToProfile()
     {
-        // ввожу фамилию в строке поиска
-        var searchBar = driver.FindElement(By.CssSelector("[data-tid='SearchBar']"));
-        searchBar.SendKeys(text:"Козаченко");  // не понимаю, почему он не активен, ведь он один единственный
+        var searchBar = driver.FindElement(By.CssSelector("[data-tid='SearchBar']")).FindElement(By.TagName("span"));
+        searchBar.Click();    
         
-        // проверяю, что среди вариантов есть нужный 
-        Assert.IsTrue(driver.FindElement(By.ClassName("react-ui-162kz0e")).Text.Equals("Алена Козаченко"));
-    
+        var searchField = driver.FindElement(By.CssSelector("[data-tid='SearchBar']"))
+            .FindElement(By.TagName("label"))
+            .FindElements(By.TagName("span"))[1]
+            .FindElement(By.TagName("input"));
+        
+        searchField.SendKeys(text:"Козаченко");
+
+        var buttonsCount = driver.FindElements(By.CssSelector("[data-tid='ComboBoxMenu__item']")).Count();
+        Assert.IsTrue(buttonsCount > 0);
+
+
     }
-    
+   
     [Test]
     public void Security()
     {
-        // клик на "меню профиля"
-        var profileMenu = driver.FindElement(By.CssSelector("[data-tid='ProfileMenu']"));
+        var profileMenu = driver.FindElement(By.CssSelector("[data-tid='PopupMenu__caption']")).FindElement(By.TagName("button"));
         profileMenu.Click();
-        // клик на "Безопасность"
+        
         var settings = driver.FindElement(By.CssSelector("[data-tid='Security']"));
         settings.Click();
-        // проверяю что нахожусь на нужной странице
+        
         var currentUrl = driver.Url;
         Assert.That(currentUrl == "https://staff-testing.testkontur.ru/security");
 
     }
+
     [Test]
     public void ToEvents()
     {
-        // загружаем страницу "Мероприятия"
-        driver.Navigate().GoToUrl("staff-testing.testkontur.ru/events"); 
-        // проверяем, что на странице есть "Актуальные" 
-        Assert.IsTrue(driver.FindElements(By.CssSelector("[href data-tid = 'Actual']"))); // не понимаю, как должны срабатывать проверки такого типа
         
+        driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/events"); 
+        
+        var findElement = driver.FindElements(By.CssSelector("[data-tid='Actual']"));
+        Assert.IsTrue(findElement.Count()>0); 
     }
 
-
-
+    
     public void Autorization()
     {
         driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru");
         var login = driver.FindElement(By.Id("Username"));
         login.SendKeys(text:"geodezia09@mail.ru");
-        
+    
         var password = driver.FindElement(By.Name("Password"));
         password.SendKeys("Agile2324!");
-        
+    
         var enter = driver.FindElement(By.Name("button"));
         enter.Click();
+        
+        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
+        wait.Until(ExpectedConditions.UrlContains("https://staff-testing.testkontur.ru/news"));
     }
 
-    [TearDown]
-    public void TearDown()
-    {
-        driver.Quit();
-    }
- 
+[TearDown]
+public void TearDown()
+{
+    driver.Quit();
+}
+
 }

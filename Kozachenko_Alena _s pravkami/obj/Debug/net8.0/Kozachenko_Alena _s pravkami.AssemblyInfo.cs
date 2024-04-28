@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kozachenko_Alena _s pravkami")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b97c227976cfde6e641073ef6476b9d02bfc0549")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kozachenko_Alena _s pravkami")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kozachenko_Alena _s pravkami")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4378aeba_002D98ae_002D424c_002D956b_002D040ac5f2d36c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SeleniumTestsForPractic #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4378aeba_002D98ae_002D424c_002D956b_002D040ac5f2d36c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SeleniumTestsForPractic #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::94341CA3-3403-4187-8C45-299C5FCBB501::net8.0::Kozachenko_Alena__s_pravkami.SeleniumTestsForPractic&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
@@ -14,7 +14,7 @@
     &lt;TestId&gt;NUnit3x::94341CA3-3403-4187-8C45-299C5FCBB501::net8.0::Kozachenko_Alena__s_pravkami.SeleniumTestsForPractic.Authorization&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8da16525_002D0494_002D4f18_002D9b2b_002D5c4a295fdd4b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SeleniumTestsForPractic #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8da16525_002D0494_002D4f18_002D9b2b_002D5c4a295fdd4b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SeleniumTestsForPractic #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::94341CA3-3403-4187-8C45-299C5FCBB501::net8.0::Kozachenko_Alena__s_pravkami.SeleniumTestsForPractic&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
